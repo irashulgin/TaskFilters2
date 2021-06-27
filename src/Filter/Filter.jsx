@@ -74,7 +74,6 @@ const Filter = () => {
    * @param {number} index
    */
   const deleteLine = (event, index) => {
-    debugger;
     if (queryList.length < 2) {
       openNotification("warning", "You can not remove the last line");
       return;
@@ -143,15 +142,13 @@ const Filter = () => {
       }
     } else if (deletedField === "Created By" || deletedField === "ID") {
       addField("Team");
-    }
-    else if (deletedValue.includes("Backlog")) {
+    } else if (deletedValue.includes("Backlog")) {
       if (!TeamInFields()) {
         addField("Team");
       }
       removeFromQuery("ID");
       removeFromFields("ID");
-    }
-    else if (deletedValue.includes("Bug")) {
+    } else if (deletedValue.includes("Bug")) {
       removeFromQuery("State");
       removeFromFields("State");
     }
@@ -301,7 +298,6 @@ const Filter = () => {
    * Save query to localstorage
    */
   const search = () => {
-    debugger;
     if (queryList && !hasEmptyFields()) {
       localStorage.setItem("query", JSON.stringify(queryList));
       openNotification("success", "The query has been saved!");
